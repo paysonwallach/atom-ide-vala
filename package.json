@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "atom-languageclient": "^0.9.9",
-    "atom-package-deps": "^7.0.1"
+    "atom-package-deps": "^7.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
