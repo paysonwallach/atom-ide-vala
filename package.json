@@ -23,7 +23,7 @@
     "atom": ">=1.21.0"
   },
   "dependencies": {
-    "atom-languageclient": "git+https://github.com/atom-ide-community/atom-languageclient.git#v1.0.0",
+    "atom-languageclient": "^1.0.0",
     "atom-package-deps": "^7.0.2"
   },
   "devDependencies": {
@@ -32,7 +32,7 @@
     "eslint": "^7.13.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "husky": "^5.0.0",
+    "husky": "^5.0.1",
     "prettier": "^2.1.2",
     "standard-version": "^9.0.0"
   },
