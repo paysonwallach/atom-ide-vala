@@ -23,7 +23,7 @@
     "atom": ">=1.21.0"
   },
   "dependencies": {
-    "atom-languageclient": "^1.0.0",
+    "atom-languageclient": "^1.0.2",
     "atom-package-deps": "^7.0.2"
   },
   "devDependencies": {
