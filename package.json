@@ -1,49 +1,47 @@
 {
   "name": "ide-vala",
+  "description": "Vala language support for Atom-IDE",
+  "license": "GPL-3.0",
+  "repository": {
+    "url": "https://github.com/paysonwallach/atom-ide-vala"
+  },
   "version": "0.2.2",
   "main": "lib/main",
-  "description": "Vala language support for Atom-IDE",
-  "keywords": [
-    "atom-ide",
-    "vala",
-    "lsp",
-    "language-client"
-  ],
-  "repository": "https://github.com/paysonwallach/atom-ide-vala",
-  "license": "GPL-3.0",
   "scripts": {
-    "format": "prettier --write .",
+    "build:meta": "scrivano",
+    "format": "run-p format:*",
+    "format:js": "prettier --write .",
+    "format:package.json": "prettier-package-json --write",
     "release": "standard-version"
   },
-  "activationHooks": [
-    "source.vala:root-scope-used",
-    "source.vapi:root-scope-used"
+  "dependencies": {
+    "atom-languageclient": "^1.0.7"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "husky": "^4.3.8",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1",
+    "prettier-package-json": "^2.1.3",
+    "scrivano": "^0.1.0",
+    "standard-version": "^9.1.0"
+  },
+  "keywords": [
+    "atom-ide",
+    "language-client",
+    "lsp",
+    "vala"
   ],
   "engines": {
     "atom": ">=1.21.0"
   },
-  "dependencies": {
-    "atom-languageclient": "^1.0.6"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^12.0.0",
-    "@commitlint/config-conventional": "^12.0.0",
-    "eslint": "^7.19.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "husky": "^5.0.8",
-    "prettier": "^2.2.1",
-    "standard-version": "^9.1.0"
-  },
-  "husky": {
-    "hooks": {
-      "precommit": "npm run format",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "enhancedScopes": [
-    "source.vala",
-    "source.vapi"
+  "activationHooks": [
+    "source.vala:root-scope-used",
+    "source.vapi:root-scope-used"
   ],
   "configSchema": {
     "vlsPath": {
@@ -63,6 +61,33 @@
       "versions": {
         "2.0.0": "consumeLinterV2"
       }
+    }
+  },
+  "enhancedScopes": [
+    "source.vala",
+    "source.vapi"
+  ],
+  "husky": {
+    "hooks": {
+      "precommit": "npm run format",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "meta": {
+    "title": "Atom IDE Vala",
+    "repository": {
+      "owner": "paysonwallach",
+      "name": "atom-ide-vala"
+    },
+    "license": {
+      "name": "GNU General Public License v3.0",
+      "url": "https://github.com/paysonwallach/atom-ide-vala/blob/master/LICENSE"
+    },
+    "codeOfConduct": {
+      "url": "https://github.com/paysonwallach/atom-ide-vala/blob/master/CODE_OF_CONDUCT.md"
+    },
+    "releases": {
+      "url": "https://github.com/paysonwallach/atom-ide-vala/releases"
     }
   },
   "providedServices": {
@@ -95,6 +120,11 @@
       "versions": {
         "0.1.0": "provideOutlines"
       }
+    }
+  },
+  "standard-version": {
+    "scripts": {
+      "precommit": "npm run build:meta"
     }
   }
 }
